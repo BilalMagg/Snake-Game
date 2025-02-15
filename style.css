@@ -30,7 +30,7 @@ section {
   border: 3px solid #EAEAEA;
   border-radius: 5px;
   height: 83%;
-  width: max(90%,800px);
+  width: max(50%,800px);
   /* padding: 10px 20px; */
   background-color: #77FF94;
   display: flex;

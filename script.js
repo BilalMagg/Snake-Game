@@ -31,6 +31,8 @@ document.querySelector('.survival').addEventListener('click', () => {
 })
 
 document.querySelector('.reset').addEventListener('click',() => {
+  highScore = 0;
+  document.querySelector('.high-score').innerHTML = `High Score : <br>${highScore}`;
   localStorage.removeItem('high-score');
 })
 
