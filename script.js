@@ -3,6 +3,9 @@ const numsRow = 24;
 const numsCol = 26;
 document.documentElement.style.setProperty('--num-cols',numsCol);
 document.documentElement.style.setProperty('--num-rows',numsRow);
+// document.body.addEventListener('keydown',(event=> {
+//   console.log(event.key)
+// }))
 
 for(let i = 0; i < numsCol * numsRow; ++i) {
   const square = document.createElement('div');
@@ -41,6 +44,7 @@ function start() {
     if(directionLock) return;
     switch (event.key) {
       case 'w':
+      case 'ArrowUp':
         if(direction!==numsCol) {
           direction = -numsCol;
           directionLock = true;
@@ -48,6 +52,7 @@ function start() {
         }
         break;
       case 's':
+      case 'ArrowDown':
         if(direction!==-numsCol) {
           direction = numsCol;
           directionLock = true;
@@ -55,6 +60,7 @@ function start() {
         }
         break;
       case 'a':
+      case 'ArrowLeft':
         if(direction!==1) {
           direction = -1;
           directionLock = true;
@@ -62,6 +68,7 @@ function start() {
         }
         break;
       case 'd':
+      case 'ArrowRight':
         if(direction!==-1) {
           direction = 1;
           directionLock = true;
@@ -161,9 +168,10 @@ function checkFruit(newHead) {
 
 function eatFruit() {
   snake.push(snake[snake.length-1]);
-  score++;
+  score = score + difficulty / 10;
   if(highScore < score) {
     highScore = score;
+    document.querySelector('.high-score').innerHTML = `High Score : <br>${highScore}`;
     localStorage.setItem('high-score',highScore.toString());
     // document.querySelector('.high-score').innerHTML = `High Score : <br>${highScore}`;
   }
